@@ -14,12 +14,19 @@ Method | HTTP request | Description
 [**dock_find**](DockApi.md#dock_find) | **GET** /Docks | Find all instances of the model matched by filter from the data source.
 [**dock_find_by_id**](DockApi.md#dock_find_by_id) | **GET** /Docks/{id} | Find a model instance by {{id}} from the data source.
 [**dock_find_one**](DockApi.md#dock_find_one) | **GET** /Docks/findOne | Find first instance of the model matched by filter from the data source.
+[**dock_prototype_count_parameter_assignments**](DockApi.md#dock_prototype_count_parameter_assignments) | **GET** /Docks/{id}/parameterAssignments/count | Counts parameterAssignments of Dock.
 [**dock_prototype_create_listing_agent**](DockApi.md#dock_prototype_create_listing_agent) | **POST** /Docks/{id}/listingAgent | Creates a new instance in listingAgent of this model.
+[**dock_prototype_create_parameter_assignments**](DockApi.md#dock_prototype_create_parameter_assignments) | **POST** /Docks/{id}/parameterAssignments | Creates a new instance in parameterAssignments of this model.
+[**dock_prototype_delete_parameter_assignments**](DockApi.md#dock_prototype_delete_parameter_assignments) | **DELETE** /Docks/{id}/parameterAssignments | Deletes all parameterAssignments of this model.
+[**dock_prototype_destroy_by_id_parameter_assignments**](DockApi.md#dock_prototype_destroy_by_id_parameter_assignments) | **DELETE** /Docks/{id}/parameterAssignments/{fk} | Delete a related item by id for parameterAssignments.
 [**dock_prototype_destroy_listing_agent**](DockApi.md#dock_prototype_destroy_listing_agent) | **DELETE** /Docks/{id}/listingAgent | Deletes listingAgent of this model.
+[**dock_prototype_find_by_id_parameter_assignments**](DockApi.md#dock_prototype_find_by_id_parameter_assignments) | **GET** /Docks/{id}/parameterAssignments/{fk} | Find a related item by id for parameterAssignments.
 [**dock_prototype_get_listing_agent**](DockApi.md#dock_prototype_get_listing_agent) | **GET** /Docks/{id}/listingAgent | Fetches hasOne relation listingAgent.
 [**dock_prototype_get_marina**](DockApi.md#dock_prototype_get_marina) | **GET** /Docks/{id}/marina | Fetches belongsTo relation marina.
+[**dock_prototype_get_parameter_assignments**](DockApi.md#dock_prototype_get_parameter_assignments) | **GET** /Docks/{id}/parameterAssignments | Queries parameterAssignments of Dock.
 [**dock_prototype_update_attributes_patch_docksid**](DockApi.md#dock_prototype_update_attributes_patch_docksid) | **PATCH** /Docks/{id} | Patch attributes for a model instance and persist it into the data source.
 [**dock_prototype_update_attributes_put_docksid**](DockApi.md#dock_prototype_update_attributes_put_docksid) | **PUT** /Docks/{id} | Patch attributes for a model instance and persist it into the data source.
+[**dock_prototype_update_by_id_parameter_assignments**](DockApi.md#dock_prototype_update_by_id_parameter_assignments) | **PUT** /Docks/{id}/parameterAssignments/{fk} | Update a related item by id for parameterAssignments.
 [**dock_prototype_update_listing_agent**](DockApi.md#dock_prototype_update_listing_agent) | **PUT** /Docks/{id}/listingAgent | Update listingAgent of this model.
 [**dock_replace_by_id**](DockApi.md#dock_replace_by_id) | **POST** /Docks/{id}/replace | Replace attributes for a model instance and persist it into the data source.
 [**dock_replace_or_create**](DockApi.md#dock_replace_or_create) | **POST** /Docks/replaceOrCreate | Replace an existing model instance or insert a new one into the data source.
@@ -489,6 +496,55 @@ No authorization required
 
 
 
+# **dock_prototype_count_parameter_assignments**
+> InlineResponse200 dock_prototype_count_parameter_assignments(id, opts)
+
+Counts parameterAssignments of Dock.
+
+### Example
+```ruby
+# load the gem
+require 'dock_genius_api_ruby_client'
+
+api_instance = DockGeniusApiRubyClient::DockApi.new
+
+id = "id_example" # String | PersistedModel id
+
+opts = { 
+  where: "where_example" # String | Criteria to match model instances
+}
+
+begin
+  #Counts parameterAssignments of Dock.
+  result = api_instance.dock_prototype_count_parameter_assignments(id, opts)
+  p result
+rescue DockGeniusApiRubyClient::ApiError => e
+  puts "Exception when calling DockApi->dock_prototype_count_parameter_assignments: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| PersistedModel id | 
+ **where** | **String**| Criteria to match model instances | [optional] 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+
+
 # **dock_prototype_create_listing_agent**
 > ListingAgent dock_prototype_create_listing_agent(id, opts)
 
@@ -538,6 +594,146 @@ No authorization required
 
 
 
+# **dock_prototype_create_parameter_assignments**
+> ParameterAssignment dock_prototype_create_parameter_assignments(id, opts)
+
+Creates a new instance in parameterAssignments of this model.
+
+### Example
+```ruby
+# load the gem
+require 'dock_genius_api_ruby_client'
+
+api_instance = DockGeniusApiRubyClient::DockApi.new
+
+id = "id_example" # String | PersistedModel id
+
+opts = { 
+  data: DockGeniusApiRubyClient::ParameterAssignment.new # ParameterAssignment | 
+}
+
+begin
+  #Creates a new instance in parameterAssignments of this model.
+  result = api_instance.dock_prototype_create_parameter_assignments(id, opts)
+  p result
+rescue DockGeniusApiRubyClient::ApiError => e
+  puts "Exception when calling DockApi->dock_prototype_create_parameter_assignments: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| PersistedModel id | 
+ **data** | [**ParameterAssignment**](ParameterAssignment.md)|  | [optional] 
+
+### Return type
+
+[**ParameterAssignment**](ParameterAssignment.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+
+
+# **dock_prototype_delete_parameter_assignments**
+> dock_prototype_delete_parameter_assignments(id)
+
+Deletes all parameterAssignments of this model.
+
+### Example
+```ruby
+# load the gem
+require 'dock_genius_api_ruby_client'
+
+api_instance = DockGeniusApiRubyClient::DockApi.new
+
+id = "id_example" # String | PersistedModel id
+
+
+begin
+  #Deletes all parameterAssignments of this model.
+  api_instance.dock_prototype_delete_parameter_assignments(id)
+rescue DockGeniusApiRubyClient::ApiError => e
+  puts "Exception when calling DockApi->dock_prototype_delete_parameter_assignments: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| PersistedModel id | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+
+
+# **dock_prototype_destroy_by_id_parameter_assignments**
+> dock_prototype_destroy_by_id_parameter_assignments(fk, id)
+
+Delete a related item by id for parameterAssignments.
+
+### Example
+```ruby
+# load the gem
+require 'dock_genius_api_ruby_client'
+
+api_instance = DockGeniusApiRubyClient::DockApi.new
+
+fk = "fk_example" # String | Foreign key for parameterAssignments
+
+id = "id_example" # String | PersistedModel id
+
+
+begin
+  #Delete a related item by id for parameterAssignments.
+  api_instance.dock_prototype_destroy_by_id_parameter_assignments(fk, id)
+rescue DockGeniusApiRubyClient::ApiError => e
+  puts "Exception when calling DockApi->dock_prototype_destroy_by_id_parameter_assignments: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fk** | **String**| Foreign key for parameterAssignments | 
+ **id** | **String**| PersistedModel id | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+
+
 # **dock_prototype_destroy_listing_agent**
 > dock_prototype_destroy_listing_agent(id)
 
@@ -570,6 +766,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+
+
+# **dock_prototype_find_by_id_parameter_assignments**
+> ParameterAssignment dock_prototype_find_by_id_parameter_assignments(fk, id)
+
+Find a related item by id for parameterAssignments.
+
+### Example
+```ruby
+# load the gem
+require 'dock_genius_api_ruby_client'
+
+api_instance = DockGeniusApiRubyClient::DockApi.new
+
+fk = "fk_example" # String | Foreign key for parameterAssignments
+
+id = "id_example" # String | PersistedModel id
+
+
+begin
+  #Find a related item by id for parameterAssignments.
+  result = api_instance.dock_prototype_find_by_id_parameter_assignments(fk, id)
+  p result
+rescue DockGeniusApiRubyClient::ApiError => e
+  puts "Exception when calling DockApi->dock_prototype_find_by_id_parameter_assignments: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fk** | **String**| Foreign key for parameterAssignments | 
+ **id** | **String**| PersistedModel id | 
+
+### Return type
+
+[**ParameterAssignment**](ParameterAssignment.md)
 
 ### Authorization
 
@@ -680,6 +924,55 @@ No authorization required
 
 
 
+# **dock_prototype_get_parameter_assignments**
+> Array&lt;ParameterAssignment&gt; dock_prototype_get_parameter_assignments(id, opts)
+
+Queries parameterAssignments of Dock.
+
+### Example
+```ruby
+# load the gem
+require 'dock_genius_api_ruby_client'
+
+api_instance = DockGeniusApiRubyClient::DockApi.new
+
+id = "id_example" # String | PersistedModel id
+
+opts = { 
+  filter: "filter_example" # String | 
+}
+
+begin
+  #Queries parameterAssignments of Dock.
+  result = api_instance.dock_prototype_get_parameter_assignments(id, opts)
+  p result
+rescue DockGeniusApiRubyClient::ApiError => e
+  puts "Exception when calling DockApi->dock_prototype_get_parameter_assignments: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| PersistedModel id | 
+ **filter** | **String**|  | [optional] 
+
+### Return type
+
+[**Array&lt;ParameterAssignment&gt;**](ParameterAssignment.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+
+
 # **dock_prototype_update_attributes_patch_docksid**
 > Dock dock_prototype_update_attributes_patch_docksid(id, opts)
 
@@ -766,6 +1059,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Dock**](Dock.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, application/xml, text/xml
+ - **Accept**: application/json, application/xml, text/xml, application/javascript, text/javascript
+
+
+
+# **dock_prototype_update_by_id_parameter_assignments**
+> ParameterAssignment dock_prototype_update_by_id_parameter_assignments(fk, id, opts)
+
+Update a related item by id for parameterAssignments.
+
+### Example
+```ruby
+# load the gem
+require 'dock_genius_api_ruby_client'
+
+api_instance = DockGeniusApiRubyClient::DockApi.new
+
+fk = "fk_example" # String | Foreign key for parameterAssignments
+
+id = "id_example" # String | PersistedModel id
+
+opts = { 
+  data: DockGeniusApiRubyClient::ParameterAssignment.new # ParameterAssignment | 
+}
+
+begin
+  #Update a related item by id for parameterAssignments.
+  result = api_instance.dock_prototype_update_by_id_parameter_assignments(fk, id, opts)
+  p result
+rescue DockGeniusApiRubyClient::ApiError => e
+  puts "Exception when calling DockApi->dock_prototype_update_by_id_parameter_assignments: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fk** | **String**| Foreign key for parameterAssignments | 
+ **id** | **String**| PersistedModel id | 
+ **data** | [**ParameterAssignment**](ParameterAssignment.md)|  | [optional] 
+
+### Return type
+
+[**ParameterAssignment**](ParameterAssignment.md)
 
 ### Authorization
 

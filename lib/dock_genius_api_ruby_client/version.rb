@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module DockGeniusApiRubyClient
-  VERSION = "0.1.1-gcf82e3"
+  VERSION = "0.1.2-ge30447"
 end

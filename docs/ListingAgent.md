@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | [optional] 
+**name** | **String** | The name of the listing agent. | [optional] 
+**crm_id** | **String** | An ID given by the CRM that links this person into the CRM. | [optional] 
 **id** | **String** |  | [optional] 
 **contact_address** | [**Address**](Address.md) |  | [optional] 
 **email_list** | [**Array&lt;EmailAddress&gt;**](EmailAddress.md) |  | [optional] 

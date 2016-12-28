@@ -24,44 +24,30 @@ limitations under the License.
 require 'date'
 
 module DockGeniusApiRubyClient
-
-  class ListingAgent
-    # The name of the listing agent.
-    attr_accessor :name
-
-    # An ID given by the CRM that links this person into the CRM.
-    attr_accessor :crm_id
+  # This class describes a specific value assigned to a parameter.
+  class ParameterAssignment
+    attr_accessor :value
 
     attr_accessor :id
 
-    attr_accessor :contact_address
-
-    attr_accessor :email_list
-
-    attr_accessor :phone_list
+    attr_accessor :_parameter
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'crm_id' => :'crmId',
+        :'value' => :'value',
         :'id' => :'id',
-        :'contact_address' => :'contactAddress',
-        :'email_list' => :'emailList',
-        :'phone_list' => :'phoneList'
+        :'_parameter' => :'_parameter'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'crm_id' => :'String',
+        :'value' => :'Float',
         :'id' => :'String',
-        :'contact_address' => :'Address',
-        :'email_list' => :'Array<EmailAddress>',
-        :'phone_list' => :'Array<Phone>'
+        :'_parameter' => :'Parameter'
       }
     end
 
@@ -73,32 +59,16 @@ module DockGeniusApiRubyClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'crmId')
-        self.crm_id = attributes[:'crmId']
+      if attributes.has_key?(:'value')
+        self.value = attributes[:'value']
       end
 
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'contactAddress')
-        self.contact_address = attributes[:'contactAddress']
-      end
-
-      if attributes.has_key?(:'emailList')
-        if (value = attributes[:'emailList']).is_a?(Array)
-          self.email_list = value
-        end
-      end
-
-      if attributes.has_key?(:'phoneList')
-        if (value = attributes[:'phoneList']).is_a?(Array)
-          self.phone_list = value
-        end
+      if attributes.has_key?(:'_parameter')
+        self._parameter = attributes[:'_parameter']
       end
 
     end
@@ -113,6 +83,7 @@ module DockGeniusApiRubyClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @value.nil?
       return true
     end
 
@@ -121,12 +92,9 @@ module DockGeniusApiRubyClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          crm_id == o.crm_id &&
+          value == o.value &&
           id == o.id &&
-          contact_address == o.contact_address &&
-          email_list == o.email_list &&
-          phone_list == o.phone_list
+          _parameter == o._parameter
     end
 
     # @see the `==` method
@@ -138,7 +106,7 @@ module DockGeniusApiRubyClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, crm_id, id, contact_address, email_list, phone_list].hash
+      [value, id, _parameter].hash
     end
 
     # Builds the object from hash

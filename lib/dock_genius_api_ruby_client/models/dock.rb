@@ -49,6 +49,7 @@ module DockGeniusApiRubyClient
     # Indicates if it is listed for sale
     attr_accessor :for_sale
 
+    # An URI that tries to link this record to a source
     attr_accessor :source
 
     attr_accessor :created
@@ -58,6 +59,8 @@ module DockGeniusApiRubyClient
     attr_accessor :marina_id
 
     attr_accessor :_listing_agent
+
+    attr_accessor :_parameter_assignments
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -75,7 +78,8 @@ module DockGeniusApiRubyClient
         :'created' => :'created',
         :'last_updated' => :'lastUpdated',
         :'marina_id' => :'marinaId',
-        :'_listing_agent' => :'_listingAgent'
+        :'_listing_agent' => :'_listingAgent',
+        :'_parameter_assignments' => :'_parameterAssignments'
       }
     end
 
@@ -94,7 +98,8 @@ module DockGeniusApiRubyClient
         :'created' => :'Date',
         :'last_updated' => :'Date',
         :'marina_id' => :'Float',
-        :'_listing_agent' => :'ListingAgent'
+        :'_listing_agent' => :'ListingAgent',
+        :'_parameter_assignments' => :'Array<ParameterAssignment>'
       }
     end
 
@@ -118,6 +123,8 @@ module DockGeniusApiRubyClient
 
       if attributes.has_key?(:'imageURL')
         self.image_url = attributes[:'imageURL']
+      else
+        self.image_url = ""
       end
 
       if attributes.has_key?(:'location')
@@ -126,6 +133,8 @@ module DockGeniusApiRubyClient
 
       if attributes.has_key?(:'boundaryGeoJSON')
         self.boundary_geo_json = attributes[:'boundaryGeoJSON']
+      else
+        self.boundary_geo_json = ""
       end
 
       if attributes.has_key?(:'isSlip')
@@ -166,6 +175,12 @@ module DockGeniusApiRubyClient
         self._listing_agent = attributes[:'_listingAgent']
       end
 
+      if attributes.has_key?(:'_parameterAssignments')
+        if (value = attributes[:'_parameterAssignments']).is_a?(Array)
+          self._parameter_assignments = value
+        end
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -203,7 +218,8 @@ module DockGeniusApiRubyClient
           created == o.created &&
           last_updated == o.last_updated &&
           marina_id == o.marina_id &&
-          _listing_agent == o._listing_agent
+          _listing_agent == o._listing_agent &&
+          _parameter_assignments == o._parameter_assignments
     end
 
     # @see the `==` method
@@ -215,7 +231,7 @@ module DockGeniusApiRubyClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, common_name, image_url, location, boundary_geo_json, is_slip, for_rent, for_sale, source, created, last_updated, marina_id, _listing_agent].hash
+      [id, common_name, image_url, location, boundary_geo_json, is_slip, for_rent, for_sale, source, created, last_updated, marina_id, _listing_agent, _parameter_assignments].hash
     end
 
     # Builds the object from hash

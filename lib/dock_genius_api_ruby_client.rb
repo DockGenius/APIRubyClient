@@ -39,12 +39,17 @@ require 'dock_genius_api_ruby_client/models/inline_response_200_1'
 require 'dock_genius_api_ruby_client/models/inline_response_200_2'
 require 'dock_genius_api_ruby_client/models/listing_agent'
 require 'dock_genius_api_ruby_client/models/marina'
+require 'dock_genius_api_ruby_client/models/parameter'
+require 'dock_genius_api_ruby_client/models/parameter_assignment'
 require 'dock_genius_api_ruby_client/models/phone'
+require 'dock_genius_api_ruby_client/models/unit_of_measurement'
 
 # APIs
 require 'dock_genius_api_ruby_client/api/customer_api'
 require 'dock_genius_api_ruby_client/api/dock_api'
 require 'dock_genius_api_ruby_client/api/marina_api'
+require 'dock_genius_api_ruby_client/api/parameter_api'
+require 'dock_genius_api_ruby_client/api/unit_of_measurement_api'
 
 module DockGeniusApiRubyClient
   class << self

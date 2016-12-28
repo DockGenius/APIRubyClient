@@ -597,6 +597,66 @@ module DockGeniusApiRubyClient
       return data, status_code, headers
     end
 
+    # Counts parameterAssignments of Dock.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :where Criteria to match model instances
+    # @return [InlineResponse200]
+    def dock_prototype_count_parameter_assignments(id, opts = {})
+      data, _status_code, _headers = dock_prototype_count_parameter_assignments_with_http_info(id, opts)
+      return data
+    end
+
+    # Counts parameterAssignments of Dock.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :where Criteria to match model instances
+    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    def dock_prototype_count_parameter_assignments_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DockApi.dock_prototype_count_parameter_assignments ..."
+      end
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling DockApi.dock_prototype_count_parameter_assignments" if id.nil?
+      # resource path
+      local_var_path = "/Docks/{id}/parameterAssignments/count".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'where'] = opts[:'where'] if !opts[:'where'].nil?
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse200')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DockApi#dock_prototype_count_parameter_assignments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Creates a new instance in listingAgent of this model.
     # 
     # @param id PersistedModel id
@@ -656,6 +716,181 @@ module DockGeniusApiRubyClient
       return data, status_code, headers
     end
 
+    # Creates a new instance in parameterAssignments of this model.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [ParameterAssignment] :data 
+    # @return [ParameterAssignment]
+    def dock_prototype_create_parameter_assignments(id, opts = {})
+      data, _status_code, _headers = dock_prototype_create_parameter_assignments_with_http_info(id, opts)
+      return data
+    end
+
+    # Creates a new instance in parameterAssignments of this model.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [ParameterAssignment] :data 
+    # @return [Array<(ParameterAssignment, Fixnum, Hash)>] ParameterAssignment data, response status code and response headers
+    def dock_prototype_create_parameter_assignments_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DockApi.dock_prototype_create_parameter_assignments ..."
+      end
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling DockApi.dock_prototype_create_parameter_assignments" if id.nil?
+      # resource path
+      local_var_path = "/Docks/{id}/parameterAssignments".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ParameterAssignment')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DockApi#dock_prototype_create_parameter_assignments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes all parameterAssignments of this model.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def dock_prototype_delete_parameter_assignments(id, opts = {})
+      dock_prototype_delete_parameter_assignments_with_http_info(id, opts)
+      return nil
+    end
+
+    # Deletes all parameterAssignments of this model.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def dock_prototype_delete_parameter_assignments_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DockApi.dock_prototype_delete_parameter_assignments ..."
+      end
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling DockApi.dock_prototype_delete_parameter_assignments" if id.nil?
+      # resource path
+      local_var_path = "/Docks/{id}/parameterAssignments".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DockApi#dock_prototype_delete_parameter_assignments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a related item by id for parameterAssignments.
+    # 
+    # @param fk Foreign key for parameterAssignments
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def dock_prototype_destroy_by_id_parameter_assignments(fk, id, opts = {})
+      dock_prototype_destroy_by_id_parameter_assignments_with_http_info(fk, id, opts)
+      return nil
+    end
+
+    # Delete a related item by id for parameterAssignments.
+    # 
+    # @param fk Foreign key for parameterAssignments
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def dock_prototype_destroy_by_id_parameter_assignments_with_http_info(fk, id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DockApi.dock_prototype_destroy_by_id_parameter_assignments ..."
+      end
+      # verify the required parameter 'fk' is set
+      fail ArgumentError, "Missing the required parameter 'fk' when calling DockApi.dock_prototype_destroy_by_id_parameter_assignments" if fk.nil?
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling DockApi.dock_prototype_destroy_by_id_parameter_assignments" if id.nil?
+      # resource path
+      local_var_path = "/Docks/{id}/parameterAssignments/{fk}".sub('{format}','json').sub('{' + 'fk' + '}', fk.to_s).sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DockApi#dock_prototype_destroy_by_id_parameter_assignments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Deletes listingAgent of this model.
     # 
     # @param id PersistedModel id
@@ -708,6 +943,67 @@ module DockGeniusApiRubyClient
         :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DockApi#dock_prototype_destroy_listing_agent\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Find a related item by id for parameterAssignments.
+    # 
+    # @param fk Foreign key for parameterAssignments
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @return [ParameterAssignment]
+    def dock_prototype_find_by_id_parameter_assignments(fk, id, opts = {})
+      data, _status_code, _headers = dock_prototype_find_by_id_parameter_assignments_with_http_info(fk, id, opts)
+      return data
+    end
+
+    # Find a related item by id for parameterAssignments.
+    # 
+    # @param fk Foreign key for parameterAssignments
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ParameterAssignment, Fixnum, Hash)>] ParameterAssignment data, response status code and response headers
+    def dock_prototype_find_by_id_parameter_assignments_with_http_info(fk, id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DockApi.dock_prototype_find_by_id_parameter_assignments ..."
+      end
+      # verify the required parameter 'fk' is set
+      fail ArgumentError, "Missing the required parameter 'fk' when calling DockApi.dock_prototype_find_by_id_parameter_assignments" if fk.nil?
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling DockApi.dock_prototype_find_by_id_parameter_assignments" if id.nil?
+      # resource path
+      local_var_path = "/Docks/{id}/parameterAssignments/{fk}".sub('{format}','json').sub('{' + 'fk' + '}', fk.to_s).sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ParameterAssignment')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DockApi#dock_prototype_find_by_id_parameter_assignments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -832,6 +1128,66 @@ module DockGeniusApiRubyClient
       return data, status_code, headers
     end
 
+    # Queries parameterAssignments of Dock.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter 
+    # @return [Array<ParameterAssignment>]
+    def dock_prototype_get_parameter_assignments(id, opts = {})
+      data, _status_code, _headers = dock_prototype_get_parameter_assignments_with_http_info(id, opts)
+      return data
+    end
+
+    # Queries parameterAssignments of Dock.
+    # 
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter 
+    # @return [Array<(Array<ParameterAssignment>, Fixnum, Hash)>] Array<ParameterAssignment> data, response status code and response headers
+    def dock_prototype_get_parameter_assignments_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DockApi.dock_prototype_get_parameter_assignments ..."
+      end
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling DockApi.dock_prototype_get_parameter_assignments" if id.nil?
+      # resource path
+      local_var_path = "/Docks/{id}/parameterAssignments".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<ParameterAssignment>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DockApi#dock_prototype_get_parameter_assignments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Patch attributes for a model instance and persist it into the data source.
     # 
     # @param id PersistedModel id
@@ -946,6 +1302,69 @@ module DockGeniusApiRubyClient
         :return_type => 'Dock')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DockApi#dock_prototype_update_attributes_put_docksid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a related item by id for parameterAssignments.
+    # 
+    # @param fk Foreign key for parameterAssignments
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [ParameterAssignment] :data 
+    # @return [ParameterAssignment]
+    def dock_prototype_update_by_id_parameter_assignments(fk, id, opts = {})
+      data, _status_code, _headers = dock_prototype_update_by_id_parameter_assignments_with_http_info(fk, id, opts)
+      return data
+    end
+
+    # Update a related item by id for parameterAssignments.
+    # 
+    # @param fk Foreign key for parameterAssignments
+    # @param id PersistedModel id
+    # @param [Hash] opts the optional parameters
+    # @option opts [ParameterAssignment] :data 
+    # @return [Array<(ParameterAssignment, Fixnum, Hash)>] ParameterAssignment data, response status code and response headers
+    def dock_prototype_update_by_id_parameter_assignments_with_http_info(fk, id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DockApi.dock_prototype_update_by_id_parameter_assignments ..."
+      end
+      # verify the required parameter 'fk' is set
+      fail ArgumentError, "Missing the required parameter 'fk' when calling DockApi.dock_prototype_update_by_id_parameter_assignments" if fk.nil?
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling DockApi.dock_prototype_update_by_id_parameter_assignments" if id.nil?
+      # resource path
+      local_var_path = "/Docks/{id}/parameterAssignments/{fk}".sub('{format}','json').sub('{' + 'fk' + '}', fk.to_s).sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json', 'application/xml', 'text/xml', 'application/javascript', 'text/javascript']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json', 'application/x-www-form-urlencoded', 'application/xml', 'text/xml']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'data'])
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ParameterAssignment')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DockApi#dock_prototype_update_by_id_parameter_assignments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
